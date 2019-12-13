@@ -11,6 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(MethodSeeder::class);
+        $this->call(DrinkSeeder::class);
+        $this->call(IngredientSeeder::class);
     }
+}
+function convert( $str ) {
+    return iconv( "Windows-1252", "UTF-8", $str );
 }
