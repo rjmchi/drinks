@@ -17,7 +17,8 @@ class CategorySeeder extends Seeder
             $row = array_map( "convert", $data);
             $cat = new \App\Category;
             $cat->id = $row[0];
-            $cat->name = strtolower(htmlentities($row[1]));
+//            $cat->name = strtolower(htmlentities($row[1]));
+            $cat->name = strtolower($row[1]);
             $cat->save();
         }
         fclose($fh); 
