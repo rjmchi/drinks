@@ -17,7 +17,7 @@ class MethodSeeder extends Seeder
             $row = array_map( "convert", $data);
             $meth = new \App\Method;
             $meth->id = $row[0];
-            $meth->method = strtolower(htmlentities($row[1]));
+            $meth->method = $row[1];
             $meth->save();
         }
         fclose($fh); 

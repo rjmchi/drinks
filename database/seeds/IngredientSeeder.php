@@ -17,9 +17,9 @@ class IngredientSeeder extends Seeder
             $row = array_map( "convert", $data);
             $ing = new \App\Ingredient;
             $ing->id = $row[0];
-            $ing->additional = strtolower(htmlentities($row[1]));
-            $ing->amount = strtolower(htmlentities($row[2]));
-            $ing->name = strtolower(htmlentities($row[3]));
+            $ing->additional = $row[1];
+            $ing->amount = $row[2];
+            $ing->name = $row[3];
             $ing->drink_id = $row[4];
 
             $ing->save();

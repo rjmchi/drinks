@@ -1,0 +1,53 @@
+.drink {
+    display:flex;
+    flex-wrap: wrap;
+    font-size:18pt;
+    justify-content: space-between;
+    border:1px solid #ccc;
+    border-radius: 10px;
+    margin:10px;
+    .title {
+        flex:1 100%;
+        display:flex;
+        justify-content: space-between;
+        padding:15px;
+    }
+    .drink-name {
+        font-size:1.1em;
+        line-height: 1em;
+        font-weight: bold;
+        padding:5px;
+        flex-basis:30%;
+    }
+    .category {
+        font-weight: bold;
+        padding:5px;
+    }
+    .glass {
+        font-size: .8em;
+        line-height: .95em;
+        padding:5px;
+        flex-basis: 30%;
+        text-align: center;
+    }
+    .build {
+        padding:15px;
+        flex:1;
+    }
+    ul.ingredients {
+        list-style:none;
+        padding:5px;
+        flex:2;
+        .ingredient {
+        }
+    }
+    .garnish {
+        font-size: .8em;
+        line-height: .9em;
+        padding:15px;
+        flex-basis: 20%;
+        align-self:flex-end;
+        text-align: center;
+    }
+
+}

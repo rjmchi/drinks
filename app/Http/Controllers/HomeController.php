@@ -11,8 +11,13 @@ use App\Ingredient;
 
 class HomeController extends Controller
 {
-    public function index() {
-        $data['categories'] = Category::get();
-        return view('home')->with($data);
+    public function index($category=null) {
+        if ($category) {
+            $data['categories']= Category::where('id', $category)->get();
+        } else {
+            $data['categories'] = Category::all();
+        }
+        $data['selected'] = $category;
+        return view('cards')->with($data);
     }
 }

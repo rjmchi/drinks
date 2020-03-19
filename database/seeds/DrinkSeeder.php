@@ -17,11 +17,11 @@ class DrinkSeeder extends Seeder
             $row = array_map( "convert", $data);
             $drink = new \App\Drink;
             $drink->id = $row[0];
-            $drink->name = strtolower(htmlentities($row[1]));
-            $drink->glass = strtolower(htmlentities($row[2]));
+            $drink->name = $row[1];
+            $drink->glass = $row[2];
             $drink->method_id = $row[3];
             $drink->category_id = $row[4];
-            $drink->garnish = strtolower(htmlentities($row[5]));
+            $drink->garnish = $row[5];
             $drink->save();
         }
         fclose($fh); 
