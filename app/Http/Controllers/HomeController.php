@@ -13,9 +13,13 @@ class HomeController extends Controller
 {
     public function index($category=null) {
         if ($category) {
-            $data['categories']= Category::where('id', $category)->get();
+            $data['categories']= Category::with(['drinks'=> function($query){
+                $query->orderBy('name');
+            }])->where('id', $category)->get();
         } else {
-            $data['categories'] = Category::all();
+            $data['categories'] = Category::with(['drinks'=> function($query){
+                $query->orderBy('name');
+            }])->orderBy('name')->get();
         }
         $data['selected'] = $category;
         return view('cards')->with($data);
