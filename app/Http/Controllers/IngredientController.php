@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Ingredient;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class IngredientController extends Controller
@@ -41,7 +41,7 @@ class IngredientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Ingredient  $ingredient
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
     public function show(Ingredient $ingredient)
@@ -52,7 +52,7 @@ class IngredientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Ingredient  $ingredient
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
     public function edit(Ingredient $ingredient)
@@ -64,7 +64,7 @@ class IngredientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ingredient  $ingredient
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Ingredient $ingredient)
@@ -75,7 +75,7 @@ class IngredientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ingredient  $ingredient
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
     public function destroy(Ingredient $ingredient)

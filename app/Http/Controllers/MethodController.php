@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Method;
+use App\Models\Method;
 use Illuminate\Http\Request;
 
 class MethodController extends Controller
@@ -41,7 +41,7 @@ class MethodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Method  $method
+     * @param  \App\Models\Method  $method
      * @return \Illuminate\Http\Response
      */
     public function show(Method $method)
@@ -52,7 +52,7 @@ class MethodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Method  $method
+     * @param  \App\Models\Method  $method
      * @return \Illuminate\Http\Response
      */
     public function edit(Method $method)
@@ -64,7 +64,7 @@ class MethodController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Method  $method
+     * @param  \App\Models\Method  $method
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Method $method)
@@ -75,7 +75,7 @@ class MethodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Method  $method
+     * @param  \App\Models\Method  $method
      * @return \Illuminate\Http\Response
      */
     public function destroy(Method $method)

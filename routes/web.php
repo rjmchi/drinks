@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,4 +13,10 @@
 |
 */
 
-Route::get('/{category?}', 'HomeController@index');
+Route::get('/{category?}', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
