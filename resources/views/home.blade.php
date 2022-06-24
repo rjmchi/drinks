@@ -1,4 +1,15 @@
 <x-guest-layout>
+    <div class="header">
+        <div class="dropdown">
+            <button class="link">Select Category</button>
+            <div class="dropdown-menu">
+                <a class="block hover:bg-zinc-200 px-2" href="{{route('home')}}">All Categories</a>
+                @foreach ($catlist as $cat)
+                    <a class="block hover:bg-zinc-200 px-2" href="{{route('home',$cat->id)}}">{{$cat->name}}</a>
+                @endforeach
+            </div>
+        </div>
+    </div>
 <div class="container">
     @foreach($categories as $category)
         @foreach($category->drinks as $drink)

@@ -8,6 +8,7 @@ use App\Models\Category;
 class HomeController extends Controller
 {
     public function index($category=null) {
+        $data['catlist'] = Category::orderBy('name')->get();
         if ($category) {
             $data['categories']= Category::with(['drinks'=> function($query){
                 $query->orderBy('name');
