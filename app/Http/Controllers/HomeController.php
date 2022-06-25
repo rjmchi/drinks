@@ -12,7 +12,7 @@ class HomeController extends Controller
         if ($category) {
             $data['categories']= Category::with(['drinks'=> function($query){
                 $query->orderBy('name');
-            }])->where('id', $category)->get();
+            }])->where('slug', $category)->get();
         } else {
             $data['categories'] = Category::with(['drinks'=> function($query){
                 $query->orderBy('name');
