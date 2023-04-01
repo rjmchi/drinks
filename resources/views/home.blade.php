@@ -11,6 +11,9 @@
         </div>
     </div>
 <div class="container">
+    @if ($selected)
+        <h1 class="text-3xl bold text-center">{{$selected}}</h1>
+    @endif
     @foreach($categories as $category)
         @foreach($category->drinks as $drink)
             <div class="drink flex flex-wrap justify-between border-2 border-slate-500 rounded-md m-3 text-lg">
