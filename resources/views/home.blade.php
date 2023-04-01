@@ -11,15 +11,16 @@
         </div>
     </div>
 <div class="container">
-    @if ($selected)
+@if ($selected)
         <h1 class="text-3xl bold text-center">{{$selected}}</h1>
     @endif
-    @foreach($categories as $category)
-        @foreach($category->drinks as $drink)
+
+    @if(count($drinks) > 0)
+        @foreach($drinks as $drink)
             <div class="drink flex flex-wrap justify-between border-2 border-slate-500 rounded-md m-3 text-lg">
                 <div class="title flex justify-between p-2 basis-full">
                     <span class="drink-name text-2xl font-bold p-2 basis-1/3">{{$drink->name}}</span>
-                    <span class="category font-bold p-2">{{$category->name}}</span>
+                    <span class="category font-bold p-2">{{$drink->category->name}}</span>
                     <span class="glass p-2 basis-1/4 text-right">{{$drink->glass}}</span>
                 </div>
                 <span class="build p-2">{{$drink->method->method}}</span>
@@ -33,6 +34,9 @@
                 <span class="garnish p-2 basis-1/4 text-center self-end">Garnish: {{$drink->garnish}}</span>
             </div>
         @endforeach
-    @endforeach
+        {!! $drinks->links() !!}
+    @else
+        <p class="mt-4 text-center">No Drinks Found</p>
+    @endif
     </div>
 </x-guest-layout>
