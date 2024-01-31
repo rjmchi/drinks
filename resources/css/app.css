@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 .header {
-    @apply bg-zinc-100 flex justify-end p-2;
+    @apply bg-sky-50 flex justify-end p-2;
 }
 
 button.link {
@@ -14,7 +14,7 @@ button.link {
     @apply relative;
 }
 .dropdown-menu {
-    @apply absolute bg-white p-2.5 rounded shadow-zinc-400 shadow-md opacity-0 transition ease-in-out duration-200;
+    @apply absolute bg-sky-50 p-2.5 rounded shadow-zinc-400 shadow-md opacity-0 transition ease-in-out duration-200;
 }
 
 .dropdown > .link:focus + .dropdown-menu {

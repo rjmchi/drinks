@@ -17,10 +17,10 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans text-zinc-900 antialiased">
             {{ $slot }}
         </div>
-        <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
+        <div class="ml-4 text-center text-sm text-zinc-500 dark:text-zinc-400 sm:text-right sm:ml-0">
             Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
         </div>
     </body>
