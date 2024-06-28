@@ -5,7 +5,7 @@
             <div class="dropdown-menu">
                 <a class="block hover:bg-sky-200 px-2" href="{{route('home')}}">All Categories</a>
                 @foreach ($catlist as $cat)
-                    <a class="block hover:bg-sky-200 px-2" href="{{route('home',$cat->slug)}}">{{$cat->name}}</a>
+                    <a class="block hover:bg-sky-200 hover:text-sky-900 px-2" href="{{route('home',$cat->slug)}}">{{$cat->name}}</a>
                 @endforeach
             </div>
         </div>
