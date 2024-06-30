@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Drink;
-use PhpParser\Node\Stmt\Catch_;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {

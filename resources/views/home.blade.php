@@ -1,42 +1,44 @@
 <x-guest-layout>
-    <div class="header">
-        <div class="dropdown">
-            <button class="link">Select Category</button>
-            <div class="dropdown-menu">
-                <a class="block hover:bg-sky-200 px-2" href="{{route('home')}}">All Categories</a>
-                @foreach ($catlist as $cat)
-                    <a class="block hover:bg-sky-200 hover:text-sky-900 px-2" href="{{route('home',$cat->slug)}}">{{$cat->name}}</a>
-                @endforeach
-            </div>
-        </div>
-    </div>
-<div class="container">
-@if ($selected)
-        <h1 class="text-3xl bold text-center text-sky-900">{{$selected}}</h1>
-    @endif
+    <div class="bg-teal-50 flex justify-end p-2">
 
-    @if(count($drinks) > 0)
+        <div>
+            <x-dropdown align="right" width="48">
+                <x-slot name="trigger">
+                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-zinc-500 bg-teal-50 hover:text-zinc-700 focus:outline-none transition ease-in-out duration-150">
+                        <div>Select Category</div>
+
+                        <div class="ms-1">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </button>
+                </x-slot>
+
+                <x-slot name="content">
+                    <x-dropdown-link :href="route('home')">All Drinks</x-dropdown-link>
+                    @foreach ($catlist as $cat)
+                        <x-dropdown-link :href="route('home',$cat->slug)">{{$cat->name}}</x-dropdown-link>
+                    @endforeach
+
+                </x-slot>
+            </x-dropdown>
+        </div>
+
+    </div>
+    <div class="container">
+        @if ($selected)
+        <h1 class="text-3xl bold text-center text-teal-900">{{$selected}}</h1>
+        @endif
+
+        @if(count($drinks) > 0)
         @foreach($drinks as $drink)
-            <div class="drink flex flex-wrap justify-between border-2 border-sky-800 rounded-md m-3 text-lg">
-                <div class="title flex justify-between p-2 basis-full">
-                    <span class="drink-name text-2xl font-bold p-2 basis-1/3">{{$drink->name}}</span>
-                    <span class="category font-bold p-2">{{$drink->category->name}}</span>
-                    <span class="glass p-2 basis-1/4 text-right">{{$drink->glass}}</span>
-                </div>
-                <span class="build p-2">{{$drink->method->method}}</span>
-                <ul class="ingredients p-2">
-                @foreach ($drink->ingredients as $ing)
-                    <span class="ingredient">
-                        <li>{{$ing->amount}} {{ $ing->name}}</li>
-                    </span>
-                @endforeach
-                </ul>
-                <span class="garnish p-2 basis-1/4 text-center self-end">Garnish: {{$drink->garnish}}</span>
-            </div>
+        <x-drink-card :drink="$drink" />
+
         @endforeach
         {!! $drinks->links() !!}
-    @else
+        @else
         <p class="mt-4 text-center">No Drinks Found</p>
-    @endif
+        @endif
     </div>
 </x-guest-layout>

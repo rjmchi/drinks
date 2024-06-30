@@ -9,10 +9,8 @@ class IngredientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         $filename = database_path('ingredient.txt');
         $fh = fopen($filename,"r");

@@ -9,10 +9,8 @@ class DrinkSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         $filename = database_path('drink.txt');
         $fh = fopen($filename,"r");
@@ -34,5 +32,3 @@ class DrinkSeeder extends Seeder
         return iconv( "Windows-1252", "UTF-8", $str );
     }
 }
-
-
