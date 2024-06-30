@@ -9,10 +9,8 @@ class MethodSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         $filename = database_path('method.txt');
         $fh = fopen($filename,"r");

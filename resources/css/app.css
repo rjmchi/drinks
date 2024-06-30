@@ -1,22 +1,3 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-.header {
-    @apply bg-sky-50 flex justify-end p-2;
-}
-
-button.link {
-    @apply mr-2.5 text-zinc-500 cursor-pointer hover:text-black w-52;
-}
-
-.dropdown {
-    @apply relative;
-}
-.dropdown-menu {
-    @apply absolute bg-sky-50 p-2.5 rounded shadow-zinc-400 shadow-md opacity-0 transition ease-in-out duration-200;
-}
-
-.dropdown > .link:focus + .dropdown-menu {
-    opacity:1;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

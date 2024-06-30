@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Drink extends Model
 {
     use HasFactory;
+
     public function ingredients() {
         return $this->hasMany(Ingredient::class);
     }
@@ -17,4 +18,5 @@ class Drink extends Model
     public function method() {
         return $this->belongsTo(Method::class);
     }
+
 }
