@@ -1,44 +1,33 @@
-<x-guest-layout>
+<x-layouts.guest :title="__('Cocktails')">
+
     <div class="bg-teal-50 flex justify-end p-2">
 
         <div>
-            <x-dropdown align="right" width="48">
-                <x-slot name="trigger">
-                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-zinc-500 bg-teal-50 hover:text-zinc-700 focus:outline-none transition ease-in-out duration-150">
-                        <div>Select Category</div>
+            <flux:dropdown>
+                <flux:button icon:trailing="chevron-down">Select Category</flux:button>
 
-                        <div class="ms-1">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </button>
-                </x-slot>
-
-                <x-slot name="content">
-                    <x-dropdown-link :href="route('home')">All Drinks</x-dropdown-link>
+                <flux:menu>
+                    <flux:menu.item :href="route('home')">All Drinks</flux:menu.item>
                     @foreach ($catlist as $cat)
-                        <x-dropdown-link :href="route('home',$cat->slug)">{{$cat->name}}</x-dropdown-link>
+                        <flux:menu.item :href="route('home', $cat->slug)">{{ $cat->name }}</flux:menu.item>
                     @endforeach
 
-                </x-slot>
-            </x-dropdown>
+                </flux:menu>
+            </flux:dropdown>
+
         </div>
 
     </div>
     <div class="container">
         @if ($selected)
-        <h1 class="text-3xl bold text-center text-teal-900">{{$selected}}</h1>
+            <h1 class="text-3xl bold text-center text-teal-900">{{ $selected }}</h1>
         @endif
 
-        @if(count($drinks) > 0)
-        @foreach($drinks as $drink)
-        <x-drink-card :drink="$drink" />
+        @forelse ($drinks as $drink)
+            <x-drink-card :drink="$drink" wire:key='$drink->id' />
+        @empty
+            <p class="mt-4 text-center">No Drinks Found</p>
+        @endforelse
 
-        @endforeach
-        {!! $drinks->links() !!}
-        @else
-        <p class="mt-4 text-center">No Drinks Found</p>
-        @endif
     </div>
-</x-guest-layout>
+</x-layouts.guest>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index($category=null) {
+ public function index($category=null) {
         $data['catlist'] = Category::orderBy('name')->get();
 
         if ($category){
