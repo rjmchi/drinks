@@ -29,5 +29,8 @@
             <p class="mt-4 text-center">No Drinks Found</p>
         @endforelse
 
+        <div>
+            {{ $drinks->links() }}
+        </div>
     </div>
 </x-layouts.guest>
