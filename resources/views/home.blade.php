@@ -1,21 +1,19 @@
 <x-layouts.guest :title="__('Cocktails')">
 
-    <div class="bg-teal-50 flex justify-end p-2">
+    <div class="bg-teal-50 flex justify-end gap-4 mx-5 p-2">
 
-        <div>
-            <flux:dropdown>
-                <flux:button icon:trailing="chevron-down">Select Category</flux:button>
+        <livewire:search-bar />
+        <flux:dropdown>
+            <flux:button icon:trailing="chevron-down">Select Category</flux:button>
 
-                <flux:menu>
-                    <flux:menu.item :href="route('home')">All Drinks</flux:menu.item>
-                    @foreach ($catlist as $cat)
-                        <flux:menu.item :href="route('home', $cat->slug)">{{ $cat->name }}</flux:menu.item>
-                    @endforeach
+            <flux:menu>
+                <flux:menu.item :href="route('home')">All Drinks</flux:menu.item>
+                @foreach ($catlist as $cat)
+                    <flux:menu.item :href="route('home', $cat->slug)">{{ $cat->name }}</flux:menu.item>
+                @endforeach
 
-                </flux:menu>
-            </flux:dropdown>
-
-        </div>
+            </flux:menu>
+        </flux:dropdown>
 
     </div>
     <div class="container">
